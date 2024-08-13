@@ -1,0 +1,22 @@
+<div class="login-container">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input id="login-email" type="email" matInput formControlName="email"/>
+            <mat-error *ngIf="loginForm.controls.email.errors?.['required']">required</mat-error>
+            <mat-error *ngIf="loginForm.controls.email.errors?.['email']">Should enter an email</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input id="login-password" matInput type="password" formControlName="password"/>
+            <mat-error *ngIf="loginForm.controls.password.errors?.['required']">required</mat-error>
+            <mat-error *ngIf="loginForm.controls.password?.errors?.['minlength']">the password should have 8 characters at least</mat-error>
+        </mat-form-field>
+
+        <a routerLink="/password/recover">
+            I forgot my password
+        </a>
+        
+          <button mat-raised-button type="submit">Test</button>
+    </form>
+</div>
