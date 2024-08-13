@@ -1,6 +1,34 @@
 # EmployeApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
+This project was generated developed by Elias Valenzuela with Angular version 18.1.2.
+
+# Users to log in
+
+User: raul@torres.com
+pass: password123
+group: employee
+
+User: andrea@flores.com
+pass: password1
+group: employee
+
+User: elias@gmail.com
+pass: 12345678
+group: admin
+
+User: pablo@perez.com
+pass: password2
+group: admin
+
+Recommend to create at least 1 user with a real email to test the password recover
+
+## Install dependencies
+
+Run `npm install` to install all dependencies
+
+## Backend enviroment Variables
+
+Set the backend localhost in environment.development.ts by default will be `http://localhost:3000/`
 
 ## Development server
 
