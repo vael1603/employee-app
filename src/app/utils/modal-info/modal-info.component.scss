@@ -1,0 +1,31 @@
+.dialog-header {
+    padding-left: 1rem;
+    padding-top: 0.75rem;
+    border-bottom: 1px #eaebee solid;
+    height: 3rem;
+    text-align: center;
+    
+    &.dialog-error {
+        background-color: #ff000038;
+    }
+    
+    &.dialog-info {
+        color: darkslategray;
+        background-color: #0785f32e;
+    }
+}
+
+p.dialog-body {
+    padding: 2rem;
+}
+
+
+.dialog-footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #eaebee;
+
+    .dialog-btn {
+        width: 100px;
+    }
+}

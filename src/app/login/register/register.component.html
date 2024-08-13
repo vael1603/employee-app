@@ -1,4 +1,10 @@
 <div class="register-container">
+    <div class="title-seccion">
+        <h3>Please fill the fields to Register</h3>
+        <a routerLink="/login">
+            I already have an account
+        </a>
+    </div>
     <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
             <mat-label>Name</mat-label>
@@ -24,10 +30,13 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Group</mat-label>
-            <input id="register-group" matInput formControlName="group"/>
+            <select id="register-group" matNativeControl required formControlName="group" placeholder="Select An option">
+                <option value="admin">Admin</option>
+                <option value="employee">Employee</option>
+              </select>
             <mat-error *ngIf="registerForm.controls.group.errors?.['required']">required</mat-error>
         </mat-form-field>
         
-        <button mat-raised-button type="submit">Test</button>
+        <button mat-raised-button type="submit">Create Account</button>
     </form>
 </div>

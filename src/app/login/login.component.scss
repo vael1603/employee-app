@@ -1,6 +1,25 @@
-form.login-form {
-    width: 20rem;
-    mat-form-field {
-        width: 100%;
+.login-container {
+    display: flex;
+    justify-content: center;
+    margin-block: 10%;
+
+    .title-seccion {
+        text-align: center;
+        width: 25%;
+    }
+
+    form.login-form {
+        width: 25%;
+        mat-form-field {
+            width: 100%;
+        }
+
+        a.forgotMypassword {
+            float: left;
+        }
+
+        button.submit-btn {
+            float: right;
+        }
     }
 }

@@ -1,4 +1,7 @@
+
+
 <div class="employee-form-container">
+    <h3>{{title}}</h3>
     <form class="employee-form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
             <mat-label>Name</mat-label>
@@ -26,8 +29,8 @@
               <mat-error *ngIf="employeeForm.controls['jobPosition'].errors?.['required']">required</mat-error>
         </mat-form-field>
         
-        <button mat-raised-button (click)="deleteMyself()" *ngIf="(action === 'editMyInformation' )">Delete Register</button>
+        <button mat-raised-button color="warn" (click)="deleteMyself()" *ngIf="(action === 'editMyInformation' )">Delete Register</button>
         <button mat-raised-button (click)="close()">cancel</button>
-        <button mat-raised-button type="submit">Save</button>
+        <button mat-flat-button type="submit">Save</button>
     </form>
 </div>

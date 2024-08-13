@@ -1,3 +1,36 @@
+mat-form-field.searchBar {
+    width: 300px;
+}
+
 button.dashboard-button {
     margin-inline: 0.75rem;
+    float: right;
 }
+
+
+.employee-table {
+    .cdk-header-row {
+        border: 1px solid #333333;
+        th{
+
+            background-color: var(--mdc-protected-button-label-text-color);
+            color: #eAEBEE;
+        }
+    }
+
+    .fa-trash {
+        color: #bd0c0c;
+    }
+
+    .fa-pencil-square-o {
+        color: #2259a9
+    }
+}
+
+.employee-table tr:nth-child(even) {
+    background-color: #0888f111; /* Color para filas pares */
+  }
+  
+  .employee-table tr:nth-child(odd) {
+    background-color: #ffffff; /* Color para filas impares */
+  }

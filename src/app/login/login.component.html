@@ -1,4 +1,10 @@
 <div class="login-container">
+    <div class="title-seccion">
+        <h5>Do you have an account?</h5>
+        <a routerLink="/register">
+            No, I want to create one
+        </a>
+    </div>
     <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <mat-form-field>
             <mat-label>Email</mat-label>
@@ -12,17 +18,12 @@
             <mat-error *ngIf="loginForm.controls.password.errors?.['required']">required</mat-error>
             <mat-error *ngIf="loginForm.controls.password?.errors?.['minlength']">the password should have 8 characters at least</mat-error>
         </mat-form-field>
-
-        <p>
-            <a routerLink="/password/recover">
-                I forgot my password
-            </a>
-            <br/>
-            <a routerLink="/register">
-                I don't have an account
-            </a>
-        </p>
         
-          <button mat-raised-button type="submit">Test</button>
+        <button mat-raised-button type="submit" class="submit-btn">LOG IN</button>
+            
+        <a routerLink="/password/recover" class="forgotMypassword">
+            I forgot my password
+        </a>
+        
     </form>
 </div>

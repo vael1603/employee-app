@@ -26,6 +26,7 @@ export class EmployeeFormComponent implements OnInit {
   employee:Employee | null = this.data.employee;
   employeeForm: FormGroup;
   positions: string[] = [];
+  title = 'Create a new Employee'
  
   constructor(
     private formBuilder: FormBuilder,
@@ -57,13 +58,16 @@ export class EmployeeFormComponent implements OnInit {
       this.employeeForm.controls['jobPosition'].setValue(this.employee.jobPosition)
 
       if(this.action === 'editMyInformation') {
+        this.title = "My Information"
         this.employeeForm.controls['name'].disable()
         this.employeeForm.controls['lastname'].disable()
       }
       if(this.action === 'editEmployee') {
+        this.title = "Edit Employee's data"
         this.employeeForm.controls['birthDay'].disable()
         this.employeeForm.controls['jobPosition'].disable()
       }
+      
     }
   }
 

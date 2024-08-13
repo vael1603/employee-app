@@ -1,7 +1,7 @@
-<div class="dialog-header">
-    <h3>{{type}}</h3>
+<div class="dialog-header {{dialogClass}}">
+    <h4>{{type}}</h4>
 </div>
-<p>{{message}}</p>
+<p class="dialog-body">{{message}}</p>
 <div class="dialog-footer">
-    <button matButton (click)="close()">accept</button>
+    <button mat-button (click)="close()" class="dialog-btn">accept</button>
 </div>

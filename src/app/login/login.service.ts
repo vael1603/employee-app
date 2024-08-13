@@ -29,18 +29,19 @@ export class LoginService {
   }
 
   public logout(): void {
-    this.user = undefined;
-    localStorage.setItem('user', '');
-    localStorage.setItem('token', '');
-  
-    this.http.post<HttpUserRes>(`${this.apiURL}/logout`, null).subscribe({
+    this.http.get<HttpUserRes>(`${this.apiURL}/logout`).subscribe({
       next: (res) => {
         this.utils.openDialog('info', res.message)
         this.router.navigate(['/login'])
+        this.user = undefined;
+        localStorage.setItem('user', '');
+        localStorage.setItem('token', '');
       },
       error: (e) =>{
         this.utils.openDialog('error', e.error.message)
         this.router.navigate(['/login'])
+        localStorage.setItem('user', '');
+        localStorage.setItem('token', '');
       }
     })
   }
@@ -55,7 +56,7 @@ export class LoginService {
 
     const body = {
       name: user.name,
-      lastName: user.lastname,
+      lastname: user.lastname,
       email: user.email,
       password: user.password,
       group: user.group

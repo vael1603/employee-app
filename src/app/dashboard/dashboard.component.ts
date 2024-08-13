@@ -117,7 +117,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   openDialog(action: string, employee: Employee | null): void {
     const dialogRef = this.dialog.open(EmployeeFormComponent, {
-      height: '400px',
+      height: '350px',
       minWidth: '45vw',
       data: {action: action, employee: employee},
     });

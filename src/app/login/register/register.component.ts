@@ -7,12 +7,12 @@ import { MatInputModule } from '@angular/material/input';
 import { LoginService } from '../login.service';
 import { UtilsService } from '../../utils/utils.service';
 import { HttpUserRes } from '../models/HttpUserRes';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [MatInputModule, MatButtonModule, ReactiveFormsModule, MatFormFieldModule, CommonModule],
+  imports: [MatInputModule, MatButtonModule, ReactiveFormsModule, MatFormFieldModule, CommonModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

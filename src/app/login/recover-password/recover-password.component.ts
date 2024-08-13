@@ -8,12 +8,12 @@ import { LoginService } from '../login.service';
 import { UtilsService } from '../../utils/utils.service';
 import { HttpUserRes } from '../models/HttpUserRes';
 import * as Jwt from 'jwt-decode';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-recover-password',
   standalone: true,
-  imports: [MatInputModule, MatButtonModule, ReactiveFormsModule, MatFormFieldModule, CommonModule],
+  imports: [MatInputModule, MatButtonModule, ReactiveFormsModule, MatFormFieldModule, CommonModule, RouterModule],
   templateUrl: './recover-password.component.html',
   styleUrl: './recover-password.component.scss'
 })
