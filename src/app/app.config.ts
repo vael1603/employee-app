@@ -1,8 +1,17 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { routes } from './app.routes';
+import { HeaderInterceptor } from './security/header-interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+  providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
+    provideRouter(routes), provideAnimationsAsync(),
+    provideHttpClient(withInterceptors([HeaderInterceptor])),
+    importProvidersFrom(NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }))
+  ]
 };
