@@ -1,0 +1,33 @@
+<div class="register-container">
+    <form class="register-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input id="register-name" matInput formControlName="name"/>
+            <mat-error *ngIf="registerForm.controls.name.errors?.['required']">required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Lastname</mat-label>
+            <input id="register-lastname" matInput formControlName="lastname"/>
+            <mat-error *ngIf="registerForm.controls.lastname.errors?.['required']">required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input id="register-email" type="email" matInput formControlName="email"/>
+            <mat-error *ngIf="registerForm.controls.email.errors?.['required']">required</mat-error>
+            <mat-error *ngIf="registerForm.controls.email.errors?.['email']">Should enter an email</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input id="register-password" matInput type="password" formControlName="password"/>
+            <mat-error *ngIf="registerForm.controls.password.errors?.['required']">required</mat-error>
+            <mat-error *ngIf="registerForm.controls.password?.errors?.['minlength']">the password should have 8 characters at least</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Group</mat-label>
+            <input id="register-group" matInput formControlName="group"/>
+            <mat-error *ngIf="registerForm.controls.group.errors?.['required']">required</mat-error>
+        </mat-form-field>
+        
+        <button mat-raised-button type="submit">Test</button>
+    </form>
+</div>

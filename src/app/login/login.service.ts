@@ -4,9 +4,10 @@ import { environment } from '../../environments/environment';
 import { HttpUserRes } from './models/HttpUserRes';
 import { Login } from './models/Login';
 import { HttpClient } from '@angular/common/http';
-import { User } from './models/User';
+import { newUser, User } from './models/User';
 import { Router } from '@angular/router';
 import { UtilsService } from '../utils/utils.service';
+import { group } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root',
@@ -48,6 +49,19 @@ export class LoginService {
     this.user = user;
     localStorage.setItem('user', JSON.stringify(this.user));
     localStorage.setItem('token', user.token);
+  }
+
+  public createUser(user: newUser): Observable<HttpUserRes> {
+
+    const body = {
+      name: user.name,
+      lastName: user.lastname,
+      email: user.email,
+      password: user.password,
+      group: user.group
+    }
+
+    return this.http.post<HttpUserRes>(`${this.apiURL}/users`, body)
   }
 
   public sendRecoverEmail(body: any) {
