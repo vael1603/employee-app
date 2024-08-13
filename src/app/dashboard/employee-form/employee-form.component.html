@@ -29,8 +29,8 @@
               <mat-error *ngIf="employeeForm.controls['jobPosition'].errors?.['required']">required</mat-error>
         </mat-form-field>
         
-        <button mat-raised-button color="warn" (click)="deleteMyself()" *ngIf="(action === 'editMyInformation' )">Delete Register</button>
-        <button mat-raised-button (click)="close()">cancel</button>
+        <button mat-raised-button type="button" color="warn" (click)="deleteMyself()" *ngIf="(action === 'editMyInformation' )">Delete Register</button>
+        <button mat-raised-button type="button" (click)="close()">cancel</button>
         <button mat-flat-button type="submit">Save</button>
     </form>
 </div>
