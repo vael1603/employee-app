@@ -1,0 +1,66 @@
+<div class="dashboard-container">
+    <button mat-raised-button (click)="addEmployee()" class="dashboard-button">
+        + Employee
+    </button>
+
+    <button mat-raised-button (click)="editMyInformation()"
+        class="dashboard-button" *ngIf="isEmployee">
+            My information
+    </button>
+    <mat-form-field>
+        <mat-label>Search Employee:</mat-label>
+        <input id="searchBar" matInput [(ngModel)]="seachBar" (ngModelChange)="onSearchChange($event)"/>
+    </mat-form-field>
+
+    <!-- <div>
+        If employee you their data
+    </div> -->
+
+    <table mat-table [dataSource]="employeesList">
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastname">
+            <th mat-header-cell *matHeaderCellDef> Lastname </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.lastname}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="birthday">
+            <th mat-header-cell *matHeaderCellDef> Birthday </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.birthDay}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="jobPosition">
+            <th mat-header-cell *matHeaderCellDef> Job position </th>
+            <td mat-cell *matCellDef="let employee"> {{employee.jobPosition}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef aria-label="row actions"></th>
+            <td mat-cell *matCellDef="let employee">
+                <button mat-icon-button aria-label="expand row" (click)="this.deleteEmployee(employee)">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef aria-label="row actions"></th>
+            <td mat-cell *matCellDef="let employee">
+                <button mat-icon-button aria-label="expand row" (click)="this.editEmployee(employee)">
+                    <i class="fa fa-pencil-square-o"></i>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+    </table>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons aria-label="Select page of employees">
+    </mat-paginator>
+</div>

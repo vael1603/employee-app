@@ -1,0 +1,33 @@
+<div class="employee-form-container">
+    <form class="employee-form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input id="employee-name" matInput formControlName="name"/>
+            <mat-error *ngIf="employeeForm.controls['name'].errors?.['required']">required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Lastname</mat-label>
+            <input id="employee-lastname" matInput formControlName="lastname"/>
+            <mat-error *ngIf="employeeForm.controls['lastname'].errors?.['required']">required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Birtday</mat-label>
+            <input id="employee-name" type="date" matInput formControlName="birthDay"/>
+            <mat-error *ngIf="employeeForm.controls['birthDay'].errors?.['required']">required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Job position</mat-label>
+            <select id="employee-lastname" matNativeControl required formControlName="jobPosition" placeholder="Select An option">
+                <option *ngFor="let item of positions" [value]="item">{{item}}</option>
+              </select>
+              <mat-error *ngIf="employeeForm.controls['jobPosition'].errors?.['required']">required</mat-error>
+        </mat-form-field>
+        
+        <button mat-raised-button (click)="deleteMyself()" *ngIf="(action === 'editMyInformation' )">Delete Register</button>
+        <button mat-raised-button (click)="close()">cancel</button>
+        <button mat-raised-button type="submit">Save</button>
+    </form>
+</div>
