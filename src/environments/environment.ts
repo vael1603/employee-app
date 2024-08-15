@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    apiURL: ''
+    apiURL: 'https://ws-employees-app.vercel.app'
 };
