@@ -62,12 +62,10 @@ export class RecoverPasswordComponent {
         tokenControl.setErrors({invalidToken: true})
       }
 
-      if(this.loginService.user && decoded) { // then it compares the decoded data with the user data
-        if(this.loginService.user.id !== decoded.data._id) {
-          // If there is any diference set the property invalidToken
-          tokenControl.setErrors({invalidToken: true})
-          }
-      }
+      if(this.recoverForm.controls.email.value !== decoded?.data.email) {
+        // If there is any diference set the property invalidToken
+        tokenControl.setErrors({invalidToken: true})
+        }
 
       return null;
   };
